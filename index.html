@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSI Explorer - Interactive Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🧠 OSI<span>Explorer</span></div>
+
+    <nav>
+        <a href="#layers">OSI Layers</a>
+        <a href="#encapsulation">Encapsulation</a>
+        <a href="#exam">Exam Mode</a>
+        <a href="#revision">Quick Revision</a>
+    </nav>
+
+    <button id="themeBtn">🌙</button>
+</header>
+
+<section class="hero">
+    <div>
+        <p class="tag">COMPUTER NETWORKING</p>
+        <h1>Master the <span>7 Layers</span> of OSI Model</h1>
+
+        <p class="hero-text">
+            Learn OSI layers through interactive explanations,
+            protocols, devices, animations and exam practice.
+        </p>
+
+        <div class="hero-buttons">
+            <button onclick="scrollToSection('layers')">
+                Explore Layers →
+            </button>
+
+            <button class="outline" onclick="scrollToSection('exam')">
+                Start Exam Mode
+            </button>
+        </div>
+    </div>
+
+    <div class="hero-card">
+        <div class="network-icon">🌐</div>
+        <h3>7-Layer OSI Stack</h3>
+        <p>Application → Physical</p>
+
+        <div class="mini-stack">
+            <div>7 Application</div>
+            <div>6 Presentation</div>
+            <div>5 Session</div>
+            <div>4 Transport</div>
+            <div>3 Network</div>
+            <div>2 Data Link</div>
+            <div>1 Physical</div>
+        </div>
+    </div>
+</section>
+
+
+<!-- OSI LAYERS -->
+
+<section id="layers" class="section">
+
+    <div class="section-title">
+        <p class="tag">INTERACTIVE</p>
+        <h2>Explore the 7 OSI Layers</h2>
+        <p>Click any layer to see its details.</p>
+    </div>
+
+    <div class="layer-layout">
+
+        <div class="layers-container" id="layerList"></div>
+
+        <div class="layer-info" id="layerInfo">
+            <div class="info-icon">🖥️</div>
+            <h2>Select a Layer</h2>
+            <p>Click a layer from the stack to learn more.</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ENCAPSULATION -->
+
+<section id="encapsulation" class="section dark-section">
+
+    <div class="section-title">
+        <p class="tag">VISUAL LEARNING</p>
+        <h2>Encapsulation & Decapsulation</h2>
+        <p>Watch data travel through the OSI model.</p>
+    </div>
+
+    <div class="animation-box">
+
+        <div class="packet" id="packet">
+            DATA
+        </div>
+
+        <div class="animation-layers">
+
+            <div>7️⃣ Application</div>
+            <div>6️⃣ Presentation</div>
+            <div>5️⃣ Session</div>
+            <div>4️⃣ Transport</div>
+            <div>3️⃣ Network</div>
+            <div>2️⃣ Data Link</div>
+            <div>1️⃣ Physical</div>
+
+        </div>
+
+    </div>
+
+    <div class="animation-buttons">
+        <button onclick="startEncapsulation()">📦 Encapsulation</button>
+        <button onclick="startDecapsulation()">🔄 Decapsulation</button>
+    </div>
+
+    <p id="animationStatus" class="animation-status">
+        Ready to start...
+    </p>
+
+</section>
+
+
+<!-- REAL WORLD -->
+
+<section class="section">
+
+    <div class="section-title">
+        <p class="tag">REAL WORLD</p>
+        <h2>📱 What happens when you send a message?</h2>
+    </div>
+
+    <div class="message-flow">
+
+        <div class="flow-card">
+            <span>01</span>
+            <h3>Application</h3>
+            <p>You type a message in WhatsApp.</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="flow-card">
+            <span>02</span>
+            <h3>Transport</h3>
+            <p>Data is divided and delivered reliably.</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="flow-card">
+            <span>03</span>
+            <h3>Network</h3>
+            <p>IP address decides the route.</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="flow-card">
+            <span>04</span>
+            <h3>Physical</h3>
+            <p>Data travels as signals.</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- EXAM MODE -->
+
+<section id="exam" class="section exam-section">
+
+    <div class="section-title">
+        <p class="tag">EXAM MODE</p>
+        <h2>🎯 Test Your Knowledge</h2>
+        <p>Answer MCQs and improve your score.</p>
+    </div>
+
+    <div class="quiz-card">
+
+        <div class="quiz-top">
+            <span id="questionNumber">Question 1</span>
+            <span id="score">Score: 0</span>
+        </div>
+
+        <h3 id="question">Question goes here</h3>
+
+        <div id="options"></div>
+
+        <button id="nextBtn" onclick="nextQuestion()">
+            Next Question →
+        </button>
+
+        <div class="progress">
+            <div id="progressBar"></div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUICK REVISION -->
+
+<section id="revision" class="section">
+
+    <div class="section-title">
+        <p class="tag">LAST MINUTE</p>
+        <h2>⚡ Quick Revision</h2>
+        <p>Important points to remember before your exam.</p>
+    </div>
+
+    <div class="revision-grid">
+
+        <div class="revision-card">
+            <b>7</b>
+            <h3>Application</h3>
+            <p>Provides network services to applications.</p>
+            <small>HTTP, FTP, SMTP, DNS</small>
+        </div>
+
+        <div class="revision-card">
+            <b>6</b>
+            <h3>Presentation</h3>
+            <p>Translation, encryption and compression.</p>
+            <small>Data Formatting</small>
+        </div>
+
+        <div class="revision-card">
+            <b>5</b>
+            <h3>Session</h3>
+            <p>Establishes and manages sessions.</p>
+            <small>Session Control</small>
+        </div>
+
+        <div class="revision-card">
+            <b>4</b>
+            <h3>Transport</h3>
+            <p>Reliable end-to-end delivery.</p>
+            <small>TCP, UDP</small>
+        </div>
+
+        <div class="revision-card">
+            <b>3</b>
+            <h3>Network</h3>
+            <p>Routing and logical addressing.</p>
+            <small>IP, Router</small>
+        </div>
+
+        <div class="revision-card">
+            <b>2</b>
+            <h3>Data Link</h3>
+            <p>Frames and MAC addressing.</p>
+            <small>Switch, MAC</small>
+        </div>
+
+        <div class="revision-card">
+            <b>1</b>
+            <h3>Physical</h3>
+            <p>Transmits raw bits.</p>
+            <small>Cables, Hub</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXAM POINTS -->
+
+<section class="section points-section">
+
+    <div class="section-title">
+        <p class="tag">EXAM READY</p>
+        <h2>📝 Important Exam Points</h2>
+    </div>
+
+    <div class="exam-points">
+
+        <div>
+            <h3>2-Mark Questions</h3>
+
+            <ul>
+                <li>Define OSI Model.</li>
+                <li>List the seven OSI layers.</li>
+                <li>What is a PDU?</li>
+                <li>What is encapsulation?</li>
+                <li>What is decapsulation?</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>5-Mark Questions</h3>
+
+            <ul>
+                <li>Explain the OSI model.</li>
+                <li>Explain the functions of each layer.</li>
+                <li>Explain encapsulation and decapsulation.</li>
+                <li>Compare TCP and UDP.</li>
+                <li>Explain OSI model with real-world example.</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MATCH GAME -->
+
+<section class="section game-section">
+
+    <div class="section-title">
+        <p class="tag">MINI GAME</p>
+        <h2>🧩 Match the Layer</h2>
+        <p>Choose the correct OSI layer.</p>
+    </div>
+
+    <div class="game-card">
+
+        <h3 id="gameQuestion">
+            Which layer uses IP addressing?
+        </h3>
+
+        <div class="game-options">
+            <button onclick="checkGame(7)">Application</button>
+            <button onclick="checkGame(4)">Transport</button>
+            <button onclick="checkGame(3)">Network</button>
+            <button onclick="checkGame(2)">Data Link</button>
+        </div>
+
+        <p id="gameResult"></p>
+
+    </div>
+
+</section>
+
+
+<footer>
+    <h3>🧠 OSI Explorer</h3>
+    <p>Learn • Practice • Master Networking</p>
+    <p>© 2026 OSI Explorer</p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
